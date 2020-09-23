@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+      window.btn1 = async () => {
+        const data = await fetch('http://localhost:8080/expenses', {
+          credentials: 'include',
+        })
+        console.log(await data.json())
+      }
+      window.btn2 = async () => {
+        const data = await fetch('http://localhost:8080/expense', {
+          credentials: 'include',
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+
+          body: JSON.stringify({
+            label: 'asd',
+            price: 19
+          })
+        })
+        console.log(await data.json())
+      }
+    </script>
+</head>
+<body>
+<button onclick="window.btn1()">
+    button 1
+</button>
+<button onclick="window.btn2()">
+    add
+</button>
+</body>
+</html>
