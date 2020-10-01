@@ -1,8 +1,6 @@
 package com.example.mop.security;
 
 import com.example.mop.models.UserRoles;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -13,7 +11,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-@Slf4j
 @Configuration
 @EnableWebSecurity
 public class SetSecurityConfig extends WebSecurityConfigurerAdapter {
