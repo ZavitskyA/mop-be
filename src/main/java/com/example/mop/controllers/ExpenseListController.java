@@ -8,17 +8,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+
 @RestController
-public class ExpenseController {
+public class ExpenseListController {
     @Autowired
     ExpenseRepository repository;
 
-    @GetMapping("/expenses")
-    public Expense[] expenseList() {
+    @GetMapping(value = "/expenseList", produces = APPLICATION_JSON_VALUE)
+    Expense[] expenseList() {
         return repository.findAll().toArray(new Expense[0]);
     }
 
-    @PostMapping("/expense")
+    @PostMapping(value = "/expense", produces = APPLICATION_JSON_VALUE)
     Expense newExpense(@RequestBody Expense newExpense) {
         return repository.save(newExpense);
     }

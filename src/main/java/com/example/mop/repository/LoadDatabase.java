@@ -6,13 +6,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-class LoadDatabase {
+public class LoadDatabase {
 
     @Bean
-    CommandLineRunner initDatabase(ExpenseRepository eRepository) {
+    CommandLineRunner initDatabase(ExpenseRepository expenseRepository) {
+        expenseRepository.save(new Expense("CATEGORY.GAMES"));
+        expenseRepository.save(new Expense("CATEGORY.SUPPLIES"));
+
         return args -> {
-            eRepository.save(new Expense("Games", 20f));
-            eRepository.save(new Expense("Supplies", 150f));
         };
     }
 }

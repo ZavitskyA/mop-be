@@ -2,26 +2,25 @@ package com.example.mop.models;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
 @Entity
+@Table(name = "expenses")
 public class Expense {
+
     @Id
     @GeneratedValue
+    @Column(name = "id")
     private Long id;
 
+    @Column(name = "label")
     private String label;
-    private Float price;
 
-    public Expense(String label, Float price) {
+    public Expense(String label) {
         this.label = label;
-        this.price = price;
     }
 
     public Expense() {
-
     }
 }
